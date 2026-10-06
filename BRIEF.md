@@ -1,6 +1,6 @@
 # Panita Gourmet & Bakery — brief del landing
 
-Landing estático (HTML/CSS/JS puro, sin build) para GitHub Pages. Tres versiones de diseño en `v1/`, `v2/`, `v3/`; `index.html` en la raíz las compara.
+Landing estático (HTML/CSS/JS puro, sin build) para GitHub Pages. La versión final (antes `v3/`) vive en la raíz; `v1/` y `v2/` quedan desactivadas y `versiones.html` es el selector.
 
 ## Negocio
 Panadería y restaurante pequeño, atendido por sus dueños, en Ciudad de Panamá. Mezcla cocina panameña, venezolana y americana. Desayunos, almuerzos, panadería internacional y repostería, opciones vegetarianas, pet-friendly. Vende congelados (tequeños para fiestas).

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panita Gourmet · Versiones</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥐</text></svg>">
+<style>
+  :root { --bg:#faf6f0; --ink:#1c1410; --line:#e6dccf; --accent:#b4532a; }
+  * { box-sizing:border-box; margin:0; }
+  html, body { height:100%; }
+  body { font:15px/1.4 system-ui, sans-serif; background:var(--bg); color:var(--ink); display:flex; flex-direction:column; }
+  header { display:flex; align-items:center; gap:12px; padding:10px 16px; border-bottom:1px solid var(--line); flex-wrap:wrap; }
+  h1 { font-size:15px; font-weight:650; margin-right:auto; }
+  nav { display:flex; gap:6px; flex-wrap:wrap; }
+  button, a.open { font:inherit; border:1px solid var(--line); background:#fff; color:var(--ink); padding:7px 12px; border-radius:8px; cursor:pointer; text-decoration:none; }
+  button[aria-pressed="true"] { background:var(--ink); color:#fff; border-color:var(--ink); }
+  button small { opacity:.8; font-size:12px; margin-left:4px; }
+  a.open { color:var(--accent); }
+  iframe { flex:1; width:100%; border:0; background:#fff; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Panita Gourmet — versiones</h1>
+  <nav aria-label="Versiones">
+    <!-- V1 y V2 desactivadas por ahora (carpetas v1/ y v2/ se conservan)
+    <button data-v="v1" aria-pressed="false">V1<small>Emil Kowalski</small></button>
+    <button data-v="v2" aria-pressed="false">V2<small>Taste skill</small></button>
+    -->
+    <button data-v="final" aria-pressed="true">Final<small>Combinada (V3)</small></button>
+  </nav>
+  <a class="open" id="open" href="./" target="_blank" rel="noopener">Abrir ↗</a>
+</header>
+<iframe id="frame" src="./" title="Vista previa"></iframe>
+<script>
+  const frame = document.getElementById('frame'), open = document.getElementById('open');
+  const buttons = document.querySelectorAll('button[data-v]');
+  function show(v) {
+    const url = v === 'final' ? './' : v + '/';
+    frame.src = url; open.href = url;
+    buttons.forEach(b => b.setAttribute('aria-pressed', b.dataset.v === v));
+    history.replaceState(null, '', '#' + v);
+  }
+  buttons.forEach(b => b.addEventListener('click', () => show(b.dataset.v)));
+  document.addEventListener('keydown', e => { /* if (['1','2'].includes(e.key)) show('v' + e.key); */ if (e.key === '3') show('final'); });
+  if (location.hash === '#final') show('final'); /* /^#v[12]$/ desactivadas */
+</script>
+</body>
+</html>

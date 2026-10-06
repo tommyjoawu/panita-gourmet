@@ -168,7 +168,7 @@
     var useV = vertical && !stageState.fallback;
     doc.classList.toggle('stage-v', useV);
     stage.classList.toggle('stage--fallback', vertical && stageState.fallback);
-    sv.poster = '../assets/video/panita-motion' + (useV ? '-vertical' : '') + '-poster.jpg';
+    sv.poster = 'assets/video/panita-motion' + (useV ? '-vertical' : '') + '-poster.jpg';
     sv.width = useV ? 1080 : 1920; sv.height = useV ? 1920 : 1080;
     var want = useV ? 'data-v' : 'data-h';
     var srcs = $$('source', sv);
@@ -285,9 +285,9 @@
         img.className = 'is-out';
         if (p.sm) {
           img.sizes = '36vw';
-          img.srcset = '../assets/img/' + p.f + '-sm.webp 800w, ../assets/img/' + p.f + '.webp ' + p.w + 'w';
+          img.srcset = 'assets/img/' + p.f + '-sm.webp 800w, assets/img/' + p.f + '.webp ' + p.w + 'w';
         }
-        img.src = '../assets/img/' + p.f + (p.sm ? '-sm' : '') + '.webp';
+        img.src = 'assets/img/' + p.f + (p.sm ? '-sm' : '') + '.webp';
         heroFrame.appendChild(img);
         cache[key] = img;
         if (img.complete) reveal(); else img.addEventListener('load', reveal, { once: true });
