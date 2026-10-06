@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+@font-face { font-family: "Fraunces"; src: url("fonts/fraunces-var.woff2") format("woff2"); font-weight: 100 900; font-style: normal; }
+@font-face { font-family: "Fraunces"; src: url("fonts/fraunces-italic-var.woff2") format("woff2"); font-weight: 100 900; font-style: italic; }
+@font-face { font-family: "Bricolage Grotesque"; src: url("fonts/bricolage-grotesque-var.woff2") format("woff2"); font-weight: 200 800; font-style: normal; }
+
+#v6-root { position: absolute; inset: 0; }
+#v6-bg { background: var(--cream); }
+#v6-top { position: absolute; left: 0; right: 0; top: 0; height: 740px; overflow: hidden; }
+#v6-top img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 52%; display: block; }
+#v6-bot { position: absolute; left: 0; right: 0; top: 1260px; height: 660px; overflow: hidden; }
+#v6-bot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; display: block; }
+#v6-text { left: 86px; right: 86px; top: 740px; height: 520px; align-items: center; text-align: center; gap: 20px; color: var(--cocoa); }
+#v6-num { font-size: 260px; line-height: 0.85; }
+#v6-stars { display: flex; gap: 14px; justify-content: center; }
+#v6-stars svg { display: block; width: 60px; height: 60px; }
+#v6-where { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 46px; color: var(--cocoa); }
+#v6-owners { font-family: "Fraunces", serif; font-style: italic; font-weight: 600; font-size: 54px; color: var(--amber-deep); }
+      </style>
+      <div id="v6-root" data-composition-id="v6" data-width="1080" data-height="1920" data-duration="3.4">
+<div class="wrap" id="v6-wrap">
+  <div class="fill" id="v6-bg"></div>
+  <div id="v6-top"><img id="v6-img" data-layout-allow-overflow src="assets/img/ig-team-mural.webp" alt="" /></div>
+  <div id="v6-bot"><img id="v6-img2" data-layout-allow-overflow src="assets/img/ig-owner-boquitas-tray.webp" alt="" /></div>
+  <div class="textblock" id="v6-text">
+    <span class="line"><span class="w head" id="v6-num">4.9</span></span>
+    <div id="v6-stars"><svg viewBox="0 0 24 24" class="star"><path fill="#D8452B" d="M12 1.8l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.9l-6.4 3.5 1.4-7.1-5.3-5 7.2-.9z" /></svg><svg viewBox="0 0 24 24" class="star"><path fill="#D8452B" d="M12 1.8l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.9l-6.4 3.5 1.4-7.1-5.3-5 7.2-.9z" /></svg><svg viewBox="0 0 24 24" class="star"><path fill="#D8452B" d="M12 1.8l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.9l-6.4 3.5 1.4-7.1-5.3-5 7.2-.9z" /></svg><svg viewBox="0 0 24 24" class="star"><path fill="#D8452B" d="M12 1.8l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.9l-6.4 3.5 1.4-7.1-5.3-5 7.2-.9z" /></svg><svg viewBox="0 0 24 24" class="star"><path fill="#D8452B" d="M12 1.8l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.9l-6.4 3.5 1.4-7.1-5.3-5 7.2-.9z" /></svg></div>
+    <span id="v6-where">en Google y Tripadvisor</span>
+    <span id="v6-owners">Atendido por sus dueños</span>
+  </div>
+</div>
+      </div>
+      <script>
+        (() => {
+        const tl = gsap.timeline({ paused: true });
+tl.fromTo("#v6-wrap", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power4.inOut" }, 0);
+tl.fromTo("#v6-img", { scale: 1.14 }, { scale: 1.02, duration: 2.4, ease: "none" }, 0);
+tl.fromTo("#v6-img2", { scale: 1.02 }, { scale: 1.14, duration: 2.4, ease: "none" }, 0);
+tl.fromTo("#v6-num", { yPercent: 105 }, { yPercent: 0, duration: 0.7, ease: "expo.out" }, 0.35);
+tl.fromTo("#v6-stars .star", { scale: 0, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)", stagger: 0.07 }, 0.55);
+tl.fromTo("#v6-where", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.8);
+tl.fromTo("#v6-owners", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.95);
+tl.fromTo("#v6-top", { xPercent: 0 }, { xPercent: -100, duration: 0.6, ease: "power4.inOut" }, 1.8);
+tl.fromTo("#v6-bot", { xPercent: 0 }, { xPercent: 100, duration: 0.6, ease: "power4.inOut" }, 1.8);
+tl.fromTo("#v6-text", { y: 0, opacity: 1 }, { y: -60, opacity: 0, duration: 0.4, ease: "power2.in" }, 1.8);
+        window.__timelines["v6"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

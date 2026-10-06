@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+@font-face { font-family: "Fraunces"; src: url("fonts/fraunces-var.woff2") format("woff2"); font-weight: 100 900; font-style: normal; }
+@font-face { font-family: "Fraunces"; src: url("fonts/fraunces-italic-var.woff2") format("woff2"); font-weight: 100 900; font-style: italic; }
+@font-face { font-family: "Bricolage Grotesque"; src: url("fonts/bricolage-grotesque-var.woff2") format("woff2"); font-weight: 200 800; font-style: normal; }
+
+#s6-root { position: absolute; inset: 0; }
+#s6-bg { background: var(--cream); }
+#s6-panel { left: 0; width: 760px; }
+#s6-panel img { object-position: 50% 60%; }
+#s6-text { left: 880px; width: 800px; top: 0; bottom: 260px; gap: 22px; color: var(--cocoa); }
+#s6-num { font-size: 320px; line-height: 0.85; }
+#s6-stars { display: flex; gap: 14px; }
+#s6-stars svg { display: block; width: 64px; height: 64px; }
+#s6-where { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 40px; color: var(--cocoa); }
+#s6-owners { font-family: "Fraunces", serif; font-style: italic; font-weight: 600; font-size: 50px; color: var(--amber-deep); }
+      </style>
+      <div id="s6-root" data-composition-id="s6" data-width="1920" data-height="1080" data-duration="3.4">
+<div class="wrap" id="s6-wrap">
+  <div class="fill" id="s6-bg"></div>
+  <div class="panel" id="s6-panel"><img id="s6-img" data-layout-allow-overflow src="assets/img/ig-team-mural.webp" alt="" /></div>
+  <div class="textblock" id="s6-text">
+    <span class="line"><span class="w head" id="s6-num">4.9</span></span>
+    <div id="s6-stars"><svg viewBox="0 0 24 24" class="star"><path fill="#D8452B" d="M12 1.8l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.9l-6.4 3.5 1.4-7.1-5.3-5 7.2-.9z" /></svg><svg viewBox="0 0 24 24" class="star"><path fill="#D8452B" d="M12 1.8l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.9l-6.4 3.5 1.4-7.1-5.3-5 7.2-.9z" /></svg><svg viewBox="0 0 24 24" class="star"><path fill="#D8452B" d="M12 1.8l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.9l-6.4 3.5 1.4-7.1-5.3-5 7.2-.9z" /></svg><svg viewBox="0 0 24 24" class="star"><path fill="#D8452B" d="M12 1.8l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.9l-6.4 3.5 1.4-7.1-5.3-5 7.2-.9z" /></svg><svg viewBox="0 0 24 24" class="star"><path fill="#D8452B" d="M12 1.8l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.9l-6.4 3.5 1.4-7.1-5.3-5 7.2-.9z" /></svg></div>
+    <span id="s6-where">en Google y Tripadvisor</span>
+    <span id="s6-owners">Atendido por sus dueños</span>
+  </div>
+</div>
+      </div>
+      <script>
+        (() => {
+        const tl = gsap.timeline({ paused: true });
+tl.fromTo("#s6-wrap", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power4.inOut" }, 0);
+tl.fromTo("#s6-img", { scale: 1.14 }, { scale: 1.02, duration: 2.4, ease: "none" }, 0);
+tl.fromTo("#s6-num", { yPercent: 105 }, { yPercent: 0, duration: 0.7, ease: "expo.out" }, 0.35);
+tl.fromTo("#s6-stars .star", { scale: 0, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)", stagger: 0.07 }, 0.55);
+tl.fromTo("#s6-where", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.8);
+tl.fromTo("#s6-owners", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.95);
+// hand-off to the wordmark (global 13.4 = local 1.8)
+tl.fromTo("#s6-panel", { xPercent: 0 }, { xPercent: -100, duration: 0.6, ease: "power4.inOut" }, 1.8);
+tl.fromTo("#s6-text", { y: 0, opacity: 1 }, { y: -60, opacity: 0, duration: 0.4, ease: "power2.in" }, 1.8);
+        window.__timelines["s6"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

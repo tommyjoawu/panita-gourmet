@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+@font-face { font-family: "Fraunces"; src: url("fonts/fraunces-var.woff2") format("woff2"); font-weight: 100 900; font-style: normal; }
+@font-face { font-family: "Fraunces"; src: url("fonts/fraunces-italic-var.woff2") format("woff2"); font-weight: 100 900; font-style: italic; }
+@font-face { font-family: "Bricolage Grotesque"; src: url("fonts/bricolage-grotesque-var.woff2") format("woff2"); font-weight: 200 800; font-style: normal; }
+
+#s7-root { position: absolute; inset: 0; }
+#s7-text { left: 260px; right: 260px; top: 0; bottom: 260px; align-items: center; text-align: center; gap: 26px; }
+#s7-mark { font-family: "Fraunces", serif; font-style: italic; font-weight: 900; font-variation-settings: "opsz" 144; font-size: 250px; line-height: 0.95; letter-spacing: -0.04em; color: var(--tomato); }
+#s7-sub { color: var(--cocoa); font-size: 32px; letter-spacing: 0.34em; }
+#s7-place { font-family: "Fraunces", serif; font-weight: 600; font-size: 50px; color: var(--cocoa); }
+#s7-rule { width: 120px; background: var(--amber); transform-origin: center center; }
+      </style>
+      <div id="s7-root" data-composition-id="s7" data-width="1920" data-height="1080" data-duration="1.6">
+<div class="wrap" id="s7-wrap">
+  <div class="textblock" id="s7-text">
+    <span class="line"><span class="w" id="s7-mark">Panita</span></span>
+    <span class="kicker" id="s7-sub">Gourmet &amp; Bakery</span>
+    <span class="rule" id="s7-rule"></span>
+    <span id="s7-place">San Francisco · Ciudad de Panamá</span>
+  </div>
+</div>
+      </div>
+      <script>
+        (() => {
+        const tl = gsap.timeline({ paused: true });
+tl.fromTo("#s7-mark", { yPercent: 105 }, { yPercent: 0, duration: 0.7, ease: "expo.out" }, 0.3);
+tl.fromTo("#s7-sub", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.45);
+tl.fromTo("#s7-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power2.out" }, 0.55);
+tl.fromTo("#s7-place", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.6);
+// exit to an empty cream field so t=15 matches t=0 exactly
+tl.to("#s7-text", { y: -50, opacity: 0, duration: 0.35, ease: "power2.in" }, 1.1);
+        window.__timelines["s7"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

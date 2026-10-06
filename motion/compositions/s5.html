@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+@font-face { font-family: "Fraunces"; src: url("fonts/fraunces-var.woff2") format("woff2"); font-weight: 100 900; font-style: normal; }
+@font-face { font-family: "Fraunces"; src: url("fonts/fraunces-italic-var.woff2") format("woff2"); font-weight: 100 900; font-style: italic; }
+@font-face { font-family: "Bricolage Grotesque"; src: url("fonts/bricolage-grotesque-var.woff2") format("woff2"); font-weight: 200 800; font-style: normal; }
+
+#s5-root { position: absolute; inset: 0; }
+#s5-scrim { background: radial-gradient(ellipse 1200px 760px at 50% 40%, rgba(26,14,8,0.8) 0%, rgba(26,14,8,0.55) 60%, rgba(26,14,8,0.35) 100%); }
+#s5-text { left: 260px; right: 260px; top: 0; bottom: 260px; align-items: center; text-align: center; color: var(--cream); }
+#s5-text .head { font-size: 168px; }
+#s5-h2 { font-style: italic; font-weight: 800; }
+#s5-kick { color: #f0b877; }
+#s5-under { display: block; width: 560px; height: 8px; background: var(--tomato); transform-origin: center center; }
+      </style>
+      <div id="s5-root" data-composition-id="s5" data-width="1920" data-height="1080" data-duration="3.0">
+<div class="wrap" id="s5-wrap">
+  <div class="kb" id="s5-kb">
+    <video id="s5-oven" src="assets/video/pexels-bread-oven.mp4" data-start="0" data-duration="1.4" data-media-start="2" data-track-index="0" muted playsinline></video>
+    <video id="s5-rolls" src="assets/video/pexels-sweet-rolls-closeup.mp4" data-start="1.4" data-duration="1.6" data-media-start="3" data-track-index="1" muted playsinline></video>
+  </div>
+  <div class="fill" id="s5-scrim"></div>
+  <div class="textblock" id="s5-text">
+    <span class="kicker" id="s5-kick">Panadería y cocina de la casa</span>
+    <h1 class="head"><span class="line"><span class="w" id="s5-h1">Hecho cada</span></span><span class="line"><span class="w" id="s5-h2">mañana</span></span></h1>
+    <span id="s5-under"></span>
+  </div>
+</div>
+      </div>
+      <script>
+        (() => {
+        const tl = gsap.timeline({ paused: true });
+tl.fromTo("#s5-wrap", { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power4.inOut" }, 0);
+tl.fromTo("#s5-kb", { scale: 1.12 }, { scale: 1.0, duration: 3.0, ease: "none" }, 0);
+tl.fromTo(["#s5-h1", "#s5-h2"], { yPercent: 105 }, { yPercent: 0, duration: 0.75, ease: "expo.out", stagger: 0.12 }, 0.35);
+tl.fromTo("#s5-kick", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.3);
+tl.fromTo("#s5-under", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power2.inOut" }, 0.85);
+        window.__timelines["s5"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

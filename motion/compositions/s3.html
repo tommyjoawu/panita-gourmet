@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+@font-face { font-family: "Fraunces"; src: url("fonts/fraunces-var.woff2") format("woff2"); font-weight: 100 900; font-style: normal; }
+@font-face { font-family: "Fraunces"; src: url("fonts/fraunces-italic-var.woff2") format("woff2"); font-weight: 100 900; font-style: italic; }
+@font-face { font-family: "Bricolage Grotesque"; src: url("fonts/bricolage-grotesque-var.woff2") format("woff2"); font-weight: 200 800; font-style: normal; }
+
+#s3-root { position: absolute; inset: 0; }
+#s3-text .dot { color: #ee6a4c; }
+#s3-bg { background: var(--cocoa); }
+#s3-panel { left: 1120px; width: 800px; }
+#s3-img2 { opacity: 0; }
+#s3-text { left: 240px; width: 820px; top: 0; bottom: 260px; color: var(--cream); }
+#s3-text .head { font-size: 158px; }
+#s3-kick { color: #e39a4f; }
+      </style>
+      <div id="s3-root" data-composition-id="s3" data-width="1920" data-height="1080" data-duration="2.9">
+<div class="wrap" id="s3-wrap">
+  <div class="fill" id="s3-bg"></div>
+  <div class="panel" id="s3-panel">
+    <img id="s3-img1" data-layout-allow-overflow src="assets/img/ig-pan-de-jamon-rolls.webp" alt="" />
+    <img id="s3-img2" data-layout-allow-overflow src="assets/img/ig-pan-de-jamon-rolls-tray.webp" alt="" />
+  </div>
+  <div class="textblock" id="s3-text">
+    <span class="kicker" id="s3-kick">Horneado aquí, receta venezolana</span>
+    <h1 class="head"><span class="line"><span class="w" id="s3-h1">Pan de</span></span><span class="line"><span class="w" id="s3-h2">jamón<span class="dot">.</span></span></span></h1>
+  </div>
+</div>
+      </div>
+      <script>
+        (() => {
+        const tl = gsap.timeline({ paused: true });
+tl.fromTo("#s3-wrap", { clipPath: "inset(0% 0% 0% 100%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power4.inOut" }, 0);
+tl.fromTo("#s3-panel", { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.7, ease: "power4.inOut" }, 0.2);
+tl.fromTo("#s3-img1", { scale: 1.18, xPercent: 3 }, { scale: 1.04, xPercent: 0, duration: 1.5, ease: "none" }, 0);
+tl.set("#s3-img2", { opacity: 0 }, 0);
+tl.set("#s3-img2", { opacity: 1 }, 1.3);
+tl.fromTo("#s3-img2", { scale: 1.06 }, { scale: 1.16, duration: 1.6, ease: "none" }, 1.3);
+tl.fromTo(["#s3-h1", "#s3-h2"], { yPercent: 105 }, { yPercent: 0, duration: 0.7, ease: "expo.out", stagger: 0.1 }, 0.35);
+tl.fromTo("#s3-kick", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.6);
+        window.__timelines["s3"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+@font-face { font-family: "Fraunces"; src: url("fonts/fraunces-var.woff2") format("woff2"); font-weight: 100 900; font-style: normal; }
+@font-face { font-family: "Fraunces"; src: url("fonts/fraunces-italic-var.woff2") format("woff2"); font-weight: 100 900; font-style: italic; }
+@font-face { font-family: "Bricolage Grotesque"; src: url("fonts/bricolage-grotesque-var.woff2") format("woff2"); font-weight: 200 800; font-style: normal; }
+
+#v4-root { position: absolute; inset: 0; }
+#v4-bg { background: var(--cocoa); }
+#v4-vid { position: absolute; left: 0; right: 0; top: 0; height: 740px; overflow: hidden; }
+#v4-vid video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 50%; display: block; }
+#v4-panel { position: absolute; left: 0; right: 0; top: 1260px; height: 660px; overflow: hidden; }
+#v4-panel img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 58%; display: block; }
+#v4-band { position: absolute; left: 0; right: 0; top: 740px; height: 520px; background: var(--cocoa); }
+#v4-text { left: 86px; right: 86px; top: 740px; height: 520px; align-items: center; text-align: center; color: var(--cream); }
+#v4-text .head { font-size: 260px; }
+#v4-text .dot { color: #ee6a4c; }
+#v4-kick { color: #f0b877; }
+      </style>
+      <div id="v4-root" data-composition-id="v4" data-width="1080" data-height="1920" data-duration="2.9">
+<div class="wrap" id="v4-wrap">
+  <div class="fill" id="v4-bg"></div>
+  <div id="v4-vid">
+    <video id="v4-video" src="assets/video/pexels-espresso-pour.mp4" data-start="0" data-duration="2.9" data-media-start="0.8" data-track-index="0" muted playsinline></video>
+  </div>
+  <div id="v4-panel"><img id="v4-img" data-layout-allow-overflow src="assets/img/ig-latte-art-cat.webp" alt="" /></div>
+  <div id="v4-band"></div>
+  <div class="textblock" id="v4-text">
+    <span class="kicker" id="v4-kick">Espresso y latte, con arte</span>
+    <h1 class="head"><span class="line"><span class="w" id="v4-h">Café<span class="dot">.</span></span></span></h1>
+  </div>
+</div>
+      </div>
+      <script>
+        (() => {
+        const tl = gsap.timeline({ paused: true });
+tl.fromTo("#v4-wrap", { clipPath: "circle(0% at 60% 22%)" }, { clipPath: "circle(125% at 60% 22%)", duration: 0.8, ease: "power3.inOut" }, 0);
+tl.fromTo("#v4-video", { scale: 1.0 }, { scale: 1.12, duration: 2.9, ease: "none" }, 0);
+tl.fromTo("#v4-h", { yPercent: 105 }, { yPercent: 0, duration: 0.7, ease: "expo.out" }, 0.35);
+tl.fromTo("#v4-kick", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.6);
+tl.fromTo("#v4-panel", { clipPath: "inset(0% 0% 0% 100%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power4.inOut" }, 1.2);
+tl.fromTo("#v4-img", { scale: 1.2 }, { scale: 1.05, duration: 1.7, ease: "none" }, 1.2);
+        window.__timelines["v4"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

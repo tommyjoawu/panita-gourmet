@@ -1,0 +1,5 @@
+node_modules/
+motion/node_modules/
+motion/renders/
+.DS_Store
+captures/

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+@font-face { font-family: "Fraunces"; src: url("fonts/fraunces-var.woff2") format("woff2"); font-weight: 100 900; font-style: normal; }
+@font-face { font-family: "Fraunces"; src: url("fonts/fraunces-italic-var.woff2") format("woff2"); font-weight: 100 900; font-style: italic; }
+@font-face { font-family: "Bricolage Grotesque"; src: url("fonts/bricolage-grotesque-var.woff2") format("woff2"); font-weight: 200 800; font-style: normal; }
+
+#s4-root { position: absolute; inset: 0; }
+#s4-text .dot { color: #ee6a4c; }
+#s4-scrim { background: radial-gradient(ellipse 1200px 1000px at 20% 40%, rgba(26,14,8,0.86) 0%, rgba(26,14,8,0.55) 60%, rgba(26,14,8,0.18) 100%); }
+#s4-panel { left: 1180px; width: 740px; }
+#s4-text { left: 240px; width: 860px; top: 0; bottom: 260px; color: var(--cream); }
+#s4-text .head { font-size: 240px; }
+#s4-kick { color: #f0b877; }
+      </style>
+      <div id="s4-root" data-composition-id="s4" data-width="1920" data-height="1080" data-duration="2.9">
+<div class="wrap" id="s4-wrap">
+  <div class="kb" id="s4-kb">
+    <video id="s4-video" src="assets/video/pexels-espresso-pour.mp4" data-start="0" data-duration="2.9" data-media-start="0.8" data-track-index="0" muted playsinline></video>
+  </div>
+  <div class="fill" id="s4-scrim"></div>
+  <div class="panel" id="s4-panel"><img id="s4-img" data-layout-allow-overflow src="assets/img/ig-latte-art-cat.webp" alt="" /></div>
+  <div class="textblock" id="s4-text">
+    <span class="kicker" id="s4-kick">Espresso y latte, con arte</span>
+    <h1 class="head"><span class="line"><span class="w" id="s4-h">Café<span class="dot">.</span></span></span></h1>
+  </div>
+</div>
+      </div>
+      <script>
+        (() => {
+        const tl = gsap.timeline({ paused: true });
+tl.fromTo("#s4-wrap", { clipPath: "circle(0% at 66% 62%)" }, { clipPath: "circle(125% at 66% 62%)", duration: 0.8, ease: "power3.inOut" }, 0);
+tl.fromTo("#s4-kb", { scale: 1.0 }, { scale: 1.1, duration: 2.9, ease: "none" }, 0);
+tl.fromTo("#s4-h", { yPercent: 105 }, { yPercent: 0, duration: 0.7, ease: "expo.out" }, 0.35);
+tl.fromTo("#s4-kick", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.6);
+tl.fromTo("#s4-panel", { clipPath: "inset(0% 0% 0% 100%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power4.inOut" }, 1.2);
+tl.fromTo("#s4-img", { scale: 1.2 }, { scale: 1.05, duration: 1.7, ease: "none" }, 1.2);
+        window.__timelines["s4"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>
